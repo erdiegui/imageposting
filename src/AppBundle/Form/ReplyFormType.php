@@ -14,6 +14,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use League\Flysystem\Filesystem;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use AppBundle\Form\ImageType;
 
 class ReplyFormType extends AbstractType
 {
@@ -43,7 +44,7 @@ class ReplyFormType extends AbstractType
     {
         $builder
             ->add('title', TextType::class)
-            ->add('image', Image::class, [
+            ->add('image', CollectionType::class, [
                 'entry_type'    => ImageType::class,
                 'allow_add'     => true,
                 'entry_options' => [
@@ -51,6 +52,7 @@ class ReplyFormType extends AbstractType
                 ],
             ])
             ;
+
         $builder->get('image')->addModelTransformer(new CallbackTransformer(
             function ($productImages) {
                 $r = [];

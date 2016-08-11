@@ -2,6 +2,10 @@
 
 namespace AppBundle\Model;
 
+/**
+ * Class Image
+ * @package AppBundle\Model
+ */
 class Image implements \JsonSerializable, \Serializable
 {
     /**
