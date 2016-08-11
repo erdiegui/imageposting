@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    kernel.media_dir: 'C:\xampp_new\htdocs\instagram\web\media'
+    kernel.media_symlink: /media/

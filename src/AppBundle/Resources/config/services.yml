@@ -4,7 +4,7 @@ services:
     instagram.image.service:
         class: AppBundle\Services\ImageService
         arguments: ["@instagram.image.repository"]
-    instagram.campaign.form_type:
+    instagram.reply.form_type:
         class: AppBundle\Form\ReplyFormType
         arguments: ["@instagram.media.flysystem","%kernel.media_symlink%"]
         tags:
