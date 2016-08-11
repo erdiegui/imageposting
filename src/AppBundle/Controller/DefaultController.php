@@ -2,9 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\ReplyFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Services\ImageService;
 
 class DefaultController extends Controller
 {
@@ -13,9 +15,18 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+
+        $form = $this->get('form.factory')->create(ReplyFormType::class);
+
+        /** @var ImageService $imageService */
+        $imageService = $this->get('instagram.image.service');
+
+        /** @var array $images */
+        $images = $imageService->getAllImages();
+
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'images'    => $images,
+            'form'      => $form->createView(),
         ]);
     }
 }
