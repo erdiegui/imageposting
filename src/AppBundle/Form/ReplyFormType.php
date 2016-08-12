@@ -12,16 +12,11 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use League\Flysystem\Filesystem;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use AppBundle\Form\ImageType;
 
 class ReplyFormType extends AbstractType
 {
-    /**
-     * @var Filesystem
-     */
-    private $fileSystem;
     /**
      * @var string
      */
@@ -29,14 +24,11 @@ class ReplyFormType extends AbstractType
 
     /**
      * ReplyFormType constructor.
-     * @param Filesystem $fileSystem
      * @param $symlinkDir
      */
     public function __construct(
-        Filesystem $fileSystem,
         $symlinkDir
     ) {
-        $this->fileSystem = $fileSystem;
         $this->symlinkDir = $symlinkDir;
     }
 

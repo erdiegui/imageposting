@@ -4,25 +4,25 @@
 
 
     <div id="container">
-        <div id="header">
-            <div id="post_number">
+        <div id="header" class="col-md-12">
+            <div id="post_number" class="col-md-4">
                 Post: #post
             </div>
-            <div id="export">
+            <div id="export" class="col-md-4">
                 <input type="button" value="Export" />
             </div>
-            <div id="views_number">Views: #views</div>
+            <div id="views_number" class="col-md-4">Views: #views</div>
         </div>
 
-        <div id="reply_box">
+        <div id="reply_box" class="col-md-12">
             {{ form_start(form, {'method': 'POST', 'attr' : {'id' : 'app_banner_form', 'class':'new-ajax-form', 'data-locationname' : '', 'data-locationid' : '', 'data-appbannerid' : ''}}) }}
-            <div class="col-md-6">
+            <div class="col-md-12">
                 {{ form_label(form.title, null, {'label_attr': {'class': 'col-md-4'}}) }}
                 {{ form_widget(form.title, {'attr':{'class': 'col-md-8'}}) }}
             </div>
-            <div class="col-md-6">
-                {#{{ form_label(form.imageFile, null, {'label_attr': {'class': 'col-md-4'}}) }}#}
-                {#{{ form_widget(form.imageFile, {'attr':{'class': 'col-md-8'}}) }}#}
+            <div class="col-md-12">
+                {{ form_label(form.imageFile, null, {'label_attr': {'class': 'col-md-4'}}) }}
+                {{ form_widget(form.imageFile, {'attr':{'class': 'col-md-8'}}) }}
             </div>
             {{ form_end(form) }}
         </div>
@@ -35,18 +35,19 @@
 {% endblock %}
 
 {% block stylesheets %}
+    {{ parent() }}
     <style>
-        #container{
-            width: 100%;
-        }
-        #header{
-            width: 100%;
-        }
-        #post_number, #export, #views_number{
-            width: 33%;
-            float: left;
-            text-align: center;
-        }
+        /*#container{*/
+            /*width: 100%;*/
+        /*}*/
+        /*#header{*/
+            /*width: 100%;*/
+        /*}*/
+        /*#post_number, #export, #views_number{*/
+            /*width: 33%;*/
+            /*float: left;*/
+            /*text-align: center;*/
+        /*}*/
 
     </style>
 {% endblock %}

@@ -3,7 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome to another instagram!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            {%  stylesheets
+                '../web/../vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+            filter='cssrewrite' package='css' output='static/css/instagram.css' %}
+            <link rel="stylesheet" href="{{ asset_url}}">
+            {%  endstylesheets  %}
+        {% endblock %}
 
     </head>
     <body>

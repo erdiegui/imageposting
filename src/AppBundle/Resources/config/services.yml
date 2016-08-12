@@ -7,15 +7,6 @@ services:
         arguments: ["@instagram.image.repository"]
     instagram.reply.form_type:
         class: AppBundle\Form\ReplyFormType
-        arguments: ["@instagram.media.flysystem","%kernel.media_symlink%"]
+        arguments: ["%kernel.media_symlink%"]
         tags:
             - { name: form.type, alias: instagram_reply }
-    instagram.media.flysystem.adapter:
-        class: League\Flysystem\Adapter\Local
-        arguments: ["%kernel.media_dir%"]
-        public: false
-    instagram.media.flysystem:
-        class: League\Flysystem\Filesystem
-        arguments: ["@instagram.media.flysystem.adapter"]
-
-
