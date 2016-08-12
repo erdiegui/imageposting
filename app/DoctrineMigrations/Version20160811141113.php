@@ -17,7 +17,7 @@ class Version20160811141113 extends AbstractMigration
     {
         $this->addSql('CREATE TABLE images (
             id INT AUTO_INCREMENT NOT NULL, 
-            title VARCHAR (100) NOT NULL,
+            title VARCHAR (100) NULL,
             image_file VARCHAR(255) NOT NULL, 
             views INT NOT NULL, 
             UNIQUE INDEX UNIQUE_IDENTIFIER (id),

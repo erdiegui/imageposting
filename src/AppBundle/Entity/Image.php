@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Image
@@ -24,8 +23,6 @@ class Image
     /**
      * @var integer
      * @ORM\Column(name="image_file", type="string", length=255)
-     * @Assert\NotBlank()
-     * @Assert\Length(min="1", max="255")
      */
     private $imageFile;
 
