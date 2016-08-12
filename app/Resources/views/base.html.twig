@@ -2,7 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome to another instagram!{% endblock %}</title>
+        <title>{% block title %}Welcome to instagramEd!{% endblock %}</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
         {% block stylesheets %}
             {%  stylesheets
                 '../web/../vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
@@ -14,6 +17,13 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+
+            {% javascripts
+            '../web/../vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+            package='js'    output='static/js/instagram.js' %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </body>
 </html>

@@ -1,23 +1,21 @@
 {% block file_preview_widget %}
-    <link href="{{ asset('bundles/vocentobackend/css/backoffice/file_preview.css') }}" type="text/css" rel="stylesheet" />
-
 
     <div class="input-group image-preview">
         <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
                 <span class="input-group-btn">
                     <!-- image-preview-clear button -->
                     <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                        <span class="glyphicon glyphicon-remove"></span> Limpiar
+                        <span class="glyphicon glyphicon-remove"></span> Remove
                     </button>
                     <!-- image-preview-input -->
                     <div class="btn btn-default image-preview-input">
                         <span class="glyphicon glyphicon-folder-open"></span>
-                        <span class="image-preview-input-title">Explorar</span>
+                        <span class="image-preview-input-title">Select Image</span>
                         <input type="file" {{ block('widget_attributes') }} accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
                     </div>
                 </span>
     </div><!-- /input-group image-preview [TO HERE]-->
 
 
-    <script src="{{ asset('bundles/vocentobackend/js/file_preview.js') }}"> </script>
+    <script src="{{ asset('bundles/app/js/file_preview.js') }}"> </script>
 {% endblock %}

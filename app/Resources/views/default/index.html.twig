@@ -5,8 +5,9 @@
 
     <div id="container">
         <div id="header" class="col-md-12">
+            <h1>Welcome to instagramEd!</h1>
             <div id="post_number" class="col-md-4">
-                Post: #post
+                Post: {{ images|length }}
             </div>
             <div id="export" class="col-md-4">
                 <input type="button" value="Export" />
@@ -15,21 +16,23 @@
         </div>
 
         <div id="reply_box" class="col-md-12">
-            {{ form_start(form, {'method': 'POST', 'attr' : {'id' : 'app_banner_form', 'class':'new-ajax-form', 'data-locationname' : '', 'data-locationid' : '', 'data-appbannerid' : ''}}) }}
-            <div class="col-md-12">
-                {{ form_label(form.title, null, {'label_attr': {'class': 'col-md-4'}}) }}
-                {{ form_widget(form.title, {'attr':{'class': 'col-md-8'}}) }}
-            </div>
-            <div class="col-md-12">
-                {{ form_label(form.imageFile, null, {'label_attr': {'class': 'col-md-4'}}) }}
-                {{ form_widget(form.imageFile, {'attr':{'class': 'col-md-8'}}) }}
-            </div>
+            <h2>Upload new image</h2>
+            {{ form_start(form, {'method': 'POST', 'attr' : {'id' : 'reply_form'}}) }}
+                <div class="uploadField col-md-12">
+                    {{ form_label(form.title, null, {'label_attr': {'class': 'col-md-4'}}) }}
+                    {{ form_widget(form.title, {'attr':{'class': 'col-md-8'}}) }}
+                </div>
+                <div class="uploadField col-md-12">
+                    {{ form_label(form.imageFile, null, {'label_attr': {'class': 'col-md-4'}}) }}
+                    {{ form_widget(form.imageFile, {'attr':{'class': 'col-md-8'}}) }}
+                </div>
             {{ form_end(form) }}
         </div>
-
-        <div id="posts">
-
-        </div>
+        {% if images|length > 0  %}
+            <div id="posts">
+                <h2>Posts</h2>
+            </div>
+        {%  endif  %}
 
     </div>
 {% endblock %}
@@ -37,17 +40,19 @@
 {% block stylesheets %}
     {{ parent() }}
     <style>
-        /*#container{*/
-            /*width: 100%;*/
-        /*}*/
-        /*#header{*/
-            /*width: 100%;*/
-        /*}*/
-        /*#post_number, #export, #views_number{*/
-            /*width: 33%;*/
-            /*float: left;*/
-            /*text-align: center;*/
-        /*}*/
+        #container{
+            width: 80%;
+            float: none;
+            margin:auto;
+        }
+        #header{
+            margin: 20px 0;
+        }
+        #post_number, #export, #views_number{
+            text-align: center;
+        }
+
+        #reply_box .uploadField { margin-bottom: 10px; }
 
     </style>
 {% endblock %}
