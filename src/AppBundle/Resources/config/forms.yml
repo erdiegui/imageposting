@@ -1,0 +1,5 @@
+services:
+  file_preview:
+    class: AppBundle\Form\FilePreviewType
+    tags:
+      - { name: form.type }

@@ -16,7 +16,7 @@ class AppExtension extends Extension
     {
         $loader = new YamlFileLoader($container, new FileLocator(array(__DIR__ . '/../Resources/config')));
         $loader->load('services.yml');
-//        $loader->load('twig-extensions.yml');
-//        $loader->load('forms.yml');
+
+        $loader->load('forms.yml');
     }
 }

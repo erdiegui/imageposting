@@ -14,8 +14,17 @@
             <div id="views_number">Views: #views</div>
         </div>
 
-        <div id="replay_box">
-
+        <div id="reply_box">
+            {{ form_start(form, {'method': 'POST', 'attr' : {'id' : 'app_banner_form', 'class':'new-ajax-form', 'data-locationname' : '', 'data-locationid' : '', 'data-appbannerid' : ''}}) }}
+            <div class="col-md-6">
+                {{ form_label(form.title, null, {'label_attr': {'class': 'col-md-4'}}) }}
+                {{ form_widget(form.title, {'attr':{'class': 'col-md-8'}}) }}
+            </div>
+            <div class="col-md-6">
+                {#{{ form_label(form.imageFile, null, {'label_attr': {'class': 'col-md-4'}}) }}#}
+                {#{{ form_widget(form.imageFile, {'attr':{'class': 'col-md-8'}}) }}#}
+            </div>
+            {{ form_end(form) }}
         </div>
 
         <div id="posts">

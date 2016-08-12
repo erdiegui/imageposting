@@ -43,72 +43,76 @@ class ReplyFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class)
-            ->add('image', CollectionType::class, [
-                'entry_type'    => ImageType::class,
-                'allow_add'     => true,
-                'entry_options' => [
-                    'required' => true,
-                ],
-            ])
+            ->add('title', TextType::class, array('label' => 'Title'))
+            ->add('imageFile', FilePreviewType::class, array('label' => 'New Image'));
+
+
+        
+//            ->add('image', CollectionType::class, [
+//                'entry_type'    => ImageType::class,
+//                'allow_add'     => true,
+//                'entry_options' => [
+//                    'required' => true,
+//                ],
+//            ])
             ;
 
-        $builder->get('image')->addModelTransformer(new CallbackTransformer(
-            function ($productImages) {
-                $r = [];
-                if (!is_array($productImages) && $productImages) {
-                    $productImages = [$productImages];
-                }
-                if (!empty($productImages)) {
-                    foreach ($productImages as $k => $productImage) {
-                        if (!$productImage instanceof Image) {
-                            $img = new Image();
-                            $img->setSize($productImage['size']);
-                            $img->setExtension($productImage['extension']);
-
-                            $parsedFilePath = str_replace($this->symlinkDir, "", $productImage['image']);
-                            $image = $this->fileSystem->read($parsedFilePath . "." . $productImage['extension']);
-                            $img->setImage(base64_encode($image));
-                        } else {
-                            $img = $productImage;
-                        }
-                        $r[] = $img;
-                    }
-                }
-
-                return $r;
-            }
-            ,
-            function ($productImages) {
-                if (is_array($productImages)) {
-                    $r = [];
-                    /** @var Image $image */
-                    foreach ($productImages as $image) {
-                        $img = $image->getImage();
-
-                        if (!empty($img)) {
-                            if (strpos($img, 'http') === 0) {
-                                $img = base64_encode(file_get_contents($img));
-                            } else {
-                                if (strpos($image->getImage(), $this->symlinkDir) === 0) {
-                                    $parsedFilePath = str_replace($this->symlinkDir, "", $image->getImage());
-                                    if ($this->fileSystem->has($parsedFilePath)) {
-                                        $img = $this->fileSystem->read($parsedFilePath);
-                                    }
-                                }
-                            }
-                            $image->setImage($img);
-                            $r [$image->getSize()] = $image;
-                        }
-                    }
-
-                    return $r;
-                } else {
-                    return $productImages;
-                }
-
-            }
-        ));
+//        $builder->get('image')->addModelTransformer(new CallbackTransformer(
+//            function ($productImages) {
+//                $r = [];
+//                if (!is_array($productImages) && $productImages) {
+//                    $productImages = [$productImages];
+//                }
+//                if (!empty($productImages)) {
+//                    foreach ($productImages as $k => $productImage) {
+//                        if (!$productImage instanceof Image) {
+//                            $img = new Image();
+//                            $img->setSize($productImage['size']);
+//                            $img->setExtension($productImage['extension']);
+//
+//                            $parsedFilePath = str_replace($this->symlinkDir, "", $productImage['image']);
+//                            $image = $this->fileSystem->read($parsedFilePath . "." . $productImage['extension']);
+//                            $img->setImage(base64_encode($image));
+//                        } else {
+//                            $img = $productImage;
+//                        }
+//                        $r[] = $img;
+//                    }
+//                }
+//
+//                return $r;
+//            }
+//            ,
+//            function ($productImages) {
+//                if (is_array($productImages)) {
+//                    $r = [];
+//                    /** @var Image $image */
+//                    foreach ($productImages as $image) {
+//                        $img = $image->getImage();
+//
+//                        if (!empty($img)) {
+//                            if (strpos($img, 'http') === 0) {
+//                                $img = base64_encode(file_get_contents($img));
+//                            } else {
+//                                if (strpos($image->getImage(), $this->symlinkDir) === 0) {
+//                                    $parsedFilePath = str_replace($this->symlinkDir, "", $image->getImage());
+//                                    if ($this->fileSystem->has($parsedFilePath)) {
+//                                        $img = $this->fileSystem->read($parsedFilePath);
+//                                    }
+//                                }
+//                            }
+//                            $image->setImage($img);
+//                            $r [$image->getSize()] = $image;
+//                        }
+//                    }
+//
+//                    return $r;
+//                } else {
+//                    return $productImages;
+//                }
+//
+//            }
+//        ));
     }
 
     public function configureOptions(
