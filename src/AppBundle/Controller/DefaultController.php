@@ -5,10 +5,13 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Configuration;
 use AppBundle\Form\ReplyFormType;
 use AppBundle\Services\ConfigurationService;
+use AppBundle\Services\DownloadService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Services\ImageService;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DefaultController extends Controller
 {
@@ -48,4 +51,20 @@ class DefaultController extends Controller
             'configuration' => $siteConfiguration
         ]);
     }
+
+    /**
+     * @Route("/export/csv", name="generateCsv")
+     * @return StreamedResponse
+     */
+    public function generateCsvAction()
+    {
+        /** @var DownloadService $downloadService */
+        $downloadService = $this->get('instagram.generate.download');
+        $fileName = $downloadService->generateCsv();
+
+//        return $response;
+        return new RedirectResponse($fileName);
+    }
+
+
 }

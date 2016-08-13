@@ -11,6 +11,8 @@ services:
         tags:
             - { name: form.type, alias: instagram_reply }
     instagram.configuration.service:
-            class: AppBundle\Services\ConfigurationService
-            arguments: ["@instagram.configuration.repository", "@doctrine.orm.default_entity_manager"]
-
+        class: AppBundle\Services\ConfigurationService
+        arguments: ["@instagram.configuration.repository", "@doctrine.orm.default_entity_manager"]
+    instagram.generate.download:
+        class: AppBundle\Services\DownloadService
+        arguments: ["@instagram.image.service", "%kernel.media_dir%", "%kernel.media_symlink%"]
