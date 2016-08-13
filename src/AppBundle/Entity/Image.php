@@ -57,7 +57,7 @@ class Image
     }
 
     /**
-     * @return int
+     * @return mixed
      */
     public function getImageFile()
     {
@@ -65,7 +65,7 @@ class Image
     }
 
     /**
-     * @param int $imageFile
+     * @param UploadedFile $imageFile
      */
     public function setImageFile($imageFile)
     {

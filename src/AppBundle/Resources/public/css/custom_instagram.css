@@ -11,3 +11,14 @@
 }
 
 #reply_box .uploadField { margin-bottom: 10px; }
+
+#posts .imageContainer {
+    text-align: center;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#posts .imageContainer .imageViewer {
+    margin-bottom: 20px;
+}

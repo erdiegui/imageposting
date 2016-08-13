@@ -29,8 +29,20 @@
             {{ form_end(form) }}
         </div>
         {% if images|length > 0  %}
-            <div id="posts">
+            <div id="posts" class="col-md-12">
                 <h2>Posts</h2>
+
+                {% for image in images %}
+                    <div class="imageContainer col-md-12">
+                        {% if image.title is defined %}
+                            <h3>{{ image.title }}</h3>
+                        {% endif %}
+                        <div class="imageViewer col-md-12">
+                            <img src="{{ image.image }}" />
+                        </div>
+                    </div>
+                {% endfor %}
+
             </div>
         {%  endif  %}
 

@@ -33,6 +33,11 @@ class ImageService
     /**
      * @var string
      */
+    protected $mediaDir;
+
+    /**
+     * @var  string
+     */
     protected $mediaSymlink;
 
     /**
@@ -40,14 +45,15 @@ class ImageService
      * @param ImageRepository $imageRepository
      * @param FormFactory $formFactory
      * @param EntityManager $em
-     * @param $mediaSymlink
+     * @param $mediaDir
      */
-    public function __construct(ImageRepository $imageRepository, FormFactory $formFactory, EntityManager $em, $mediaSymlink)
+    public function __construct(ImageRepository $imageRepository, FormFactory $formFactory, EntityManager $em, $mediaDir, $mediaSymlink)
     {
         $this->imageRepository = $imageRepository;
         $this->formFactory = $formFactory;
         $this->em = $em;
         $this->mediaSymlink = $mediaSymlink;
+        $this->mediaDir = $mediaDir;
     }
 
     /**
@@ -100,21 +106,15 @@ class ImageService
             return;
         }
 
-//        $uploadPreference = $this->em->getRepository('VocentoOferplanBundle:UploadPreferences')
-//            ->findOneBy(array('name' => self::PRE_GENERATED_COUPON_CODES));
-//
-//        if(!$uploadPreference){
-//            throw new \RuntimeException('No preferences found');
-//        }
         $pathStringFromDate = $this->getPathStringFromDate(new \DateTime('now'));
-        $uploadDir = $this->mediaSymlink. $pathStringFromDate;
+        $uploadDir = $this->mediaDir. $pathStringFromDate;
 
         $image->getImageFile()->move(
             $uploadDir,
             $image->getImageFile()->getClientOriginalName()
         );
 
-        $image->setImage(ltrim($pathStringFromDate, '/').'/'.$image->getImageFile()->getClientOriginalName());
+        $image->setImage($this->mediaSymlink . $pathStringFromDate . '/' .  $image->getImageFile()->getClientOriginalName());
         $image->setImageFile(null);
     }
 

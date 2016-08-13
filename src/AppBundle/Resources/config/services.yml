@@ -4,7 +4,7 @@ imports:
 services:
     instagram.image.service:
         class: AppBundle\Services\ImageService
-        arguments: ["@instagram.image.repository", "@form.factory", "@doctrine.orm.default_entity_manager", "%kernel.media_symlink%"]
+        arguments: ["@instagram.image.repository", "@form.factory", "@doctrine.orm.default_entity_manager", "%kernel.media_dir%", "%kernel.media_symlink%"]
     instagram.reply.form_type:
         class: AppBundle\Form\ReplyFormType
         arguments: ["%kernel.media_symlink%"]

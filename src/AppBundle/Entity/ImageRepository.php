@@ -17,6 +17,13 @@ class ImageRepository extends EntityRepository
         /** @var EntityManager $em */
         $em = $this->getEntityManager();
 
-        return $em->getRepository(Image::class)->findAll();
+        $dql = " SELECT i
+                FROM AppBundle:Image i
+                ORDER BY i.id DESC";
+        $query = $em->createQuery($dql);
+        $res = $query->getArrayResult();
+
+        return $res;
+
     }
 }
