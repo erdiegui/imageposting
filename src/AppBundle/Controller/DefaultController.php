@@ -15,11 +15,17 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-
-        $form = $this->get('form.factory')->create(ReplyFormType::class);
-
         /** @var ImageService $imageService */
         $imageService = $this->get('instagram.image.service');
+
+        $replyForm = $request->get('reply_form');
+
+        $errorsFound = null;
+        if ($replyForm) {
+            $errorsFound = $imageService->createImage($request);
+        }
+
+        $form = $this->get('form.factory')->create(ReplyFormType::class);
 
         /** @var array $images */
         $images = $imageService->getAllImages();
@@ -27,6 +33,7 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', [
             'images'    => $images,
             'form'      => $form->createView(),
+            'errorsFound' => $errorsFound
         ]);
     }
 }

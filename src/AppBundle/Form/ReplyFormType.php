@@ -48,7 +48,6 @@ class ReplyFormType extends AbstractType
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'method'             => 'post',
-            'data_class'         => Image::class,
             'csrf_protection'    => false,
             'allow_extra_fields' => true,
 

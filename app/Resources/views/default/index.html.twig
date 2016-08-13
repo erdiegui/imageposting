@@ -39,20 +39,9 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <style>
-        #container{
-            width: 80%;
-            float: none;
-            margin:auto;
-        }
-        #header{
-            margin: 20px 0;
-        }
-        #post_number, #export, #views_number{
-            text-align: center;
-        }
-
-        #reply_box .uploadField { margin-bottom: 10px; }
-
-    </style>
+    {%  stylesheets
+    '../web/bundles/app/css/custom_instagram.css'
+    filter='cssrewrite' package='css' output='static/css/custom_instagram.css' %}
+    <link rel="stylesheet" href="{{ asset_url}}">
+    {%  endstylesheets  %}
 {% endblock %}

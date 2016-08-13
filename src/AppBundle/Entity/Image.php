@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Image
@@ -21,16 +23,22 @@ class Image
     private $id;
 
     /**
-     * @var integer
-     * @ORM\Column(name="image_file", type="string", length=255)
+     * @var string
+     * @ORM\Column(name="title", type="string", length=100)
      */
-    private $imageFile;
+    private $title;
 
     /**
      * @var integer
-     * @ORM\Column(name="views", type="integer")
+     * @ORM\Column(name="image_file", type="string", length=255)
      */
-    private $views;
+    private $image;
+
+    /**
+     * @Assert\File(maxSize="12000000")
+     */
+    private $imageFile;
+
 
     /**
      * @return int
@@ -67,17 +75,33 @@ class Image
     /**
      * @return int
      */
-    public function getViews()
+    public function getImage()
     {
-        return $this->views;
+        return $this->image;
     }
 
     /**
-     * @param int $views
+     * @param int $image
      */
-    public function setViews($views)
+    public function setImage($image)
     {
-        $this->views = $views;
+        $this->image = $image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
     }
 
 }
