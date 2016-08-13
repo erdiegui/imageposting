@@ -12,6 +12,9 @@ use Doctrine\ORM\Query;
  */
 class ImageRepository extends EntityRepository
 {
+    /**
+     * @return array
+     */
     public function getAllImages() {
 
         /** @var EntityManager $em */

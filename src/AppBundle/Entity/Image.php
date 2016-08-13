@@ -29,7 +29,7 @@ class Image
     private $title;
 
     /**
-     * @var integer
+     * @var string
      * @ORM\Column(name="image_file", type="string", length=255)
      */
     private $image;
@@ -73,7 +73,7 @@ class Image
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getImage()
     {
@@ -81,7 +81,7 @@ class Image
     }
 
     /**
-     * @param int $image
+     * @param string $image
      */
     public function setImage($image)
     {

@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    {{ configuration.title }}
+{% endblock %}
+
 {% block body %}
-
-
     <div id="container">
         <div id="header" class="col-md-12">
             <h1>Welcome to instagramEd!</h1>
@@ -12,7 +14,7 @@
             <div id="export" class="col-md-4">
                 <input type="button" value="Export" />
             </div>
-            <div id="views_number" class="col-md-4">Views: #views</div>
+            <div id="views_number" class="col-md-4">Views: {{ configuration.views }}</div>
         </div>
 
         <div id="reply_box" class="col-md-12">
