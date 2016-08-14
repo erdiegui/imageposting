@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b766bd8-efc0-4b8a-88d4-db42711eaf13" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/media/export.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/media/export_1471107969.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/media/export_1471108024.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/media/export_1471108038.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/media/export_1471108117.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="instagram.iws" />
@@ -1651,6 +1646,20 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="instagram">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -1754,7 +1763,7 @@
       <workItem from="1470839666999" duration="1000" />
       <workItem from="1470840727101" duration="6277000" />
       <workItem from="1470922606095" duration="129000" />
-      <workItem from="1470923470836" duration="26535000" />
+      <workItem from="1470923470836" duration="26659000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/erdiegui/instagramed&#10;&#10;Conflicts:&#10;&#9;README.md&#10;">
       <created>1464103215015</created>
@@ -1882,11 +1891,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471108159386</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Finish project&#10;">
+      <created>1471180538964</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1471180538964</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37767000" />
+    <option name="totallyTimeSpent" value="37891000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
@@ -1958,7 +1974,8 @@
     <MESSAGE value="Views from configuration" />
     <MESSAGE value="Form css" />
     <MESSAGE value="Export files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Export files" />
+    <MESSAGE value="Finish project&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish project&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
