@@ -1,0 +1,14 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: instagram
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 36d293496b98f3652818e94b30540549ceec97dd
+    kernel.media_dir: 'C:\xampp_new\htdocs\instagram\web\media'
+    kernel.media_symlink: /media/
